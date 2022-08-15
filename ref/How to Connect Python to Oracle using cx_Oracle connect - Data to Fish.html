@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/ -->
+<html lang="en-US" prefix="og: https://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+<meta name="google-site-verification" content="zG8TYde5XcsUoNmrf2-9JCAxQ-hBIQu7vH1lkJk5l5o">		
+
+	
+	
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Search Engine Optimization by Rank Math - https://s.rankmath.com/home -->
+<title>How to Connect Python to Oracle using cx_Oracle connect - Data to Fish</title>
+<meta name="description" content="Need to connect your Python to an Oracle database? If so, you&#39;ll see how to connect Python to an Oracle database using cx_Oracle connect.">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Connect Python to Oracle using cx_Oracle connect - Data to Fish">
+<meta property="og:description" content="Need to connect your Python to an Oracle database? If so, you&#39;ll see how to connect Python to an Oracle database using cx_Oracle connect.">
+<meta property="og:url" content="https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/">
+<meta property="og:site_name" content="Data to Fish">
+<meta property="article:section" content="Python">
+<meta property="og:updated_time" content="2021-06-12T08:01:12+00:00">
+<meta property="article:published_time" content="2018-01-28T15:57:52+00:00">
+<meta property="article:modified_time" content="2021-06-12T08:01:12+00:00">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Connect Python to Oracle using cx_Oracle connect - Data to Fish">
+<meta name="twitter:description" content="Need to connect your Python to an Oracle database? If so, you&#39;ll see how to connect Python to an Oracle database using cx_Oracle connect.">
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":["Person","Organization"],"@id":"https://datatofish.com/#person","name":"Data to Fish","logo":{"@type":"ImageObject","@id":"https://datatofish.com/#logo","url":"https://datatofish.com/wp-content/uploads/2018/05/64-1-1.png","caption":"Data to Fish","inLanguage":"en-US","width":"64","height":"64"},"image":{"@type":"ImageObject","@id":"https://datatofish.com/#logo","url":"https://datatofish.com/wp-content/uploads/2018/05/64-1-1.png","caption":"Data to Fish","inLanguage":"en-US","width":"64","height":"64"}},{"@type":"WebSite","@id":"https://datatofish.com/#website","url":"https://datatofish.com","name":"Data to Fish","publisher":{"@id":"https://datatofish.com/#person"},"inLanguage":"en-US"},{"@type":"BreadcrumbList","@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#breadcrumb","itemListElement":[{"@type":"ListItem","position":"1","item":{"@id":"https://datatofish.com","name":"Home"}},{"@type":"ListItem","position":"2","item":{"@id":"https://datatofish.com/category/python/","name":"Python"}},{"@type":"ListItem","position":"3","item":{"@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/","name":"How to Connect Python to Oracle Database using cx_Oracle"}}]},{"@type":"WebPage","@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#webpage","url":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/","name":"How to Connect Python to Oracle using cx_Oracle connect - Data to Fish","datePublished":"2018-01-28T15:57:52+00:00","dateModified":"2021-06-12T08:01:12+00:00","isPartOf":{"@id":"https://datatofish.com/#website"},"inLanguage":"en-US","breadcrumb":{"@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#breadcrumb"}},{"@type":"Person","@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#author","name":"Doron","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/0d1d043178f962355262712aac6cf8bb?s=96&amp;d=blank&amp;r=g","url":"https://secure.gravatar.com/avatar/0d1d043178f962355262712aac6cf8bb?s=96&amp;d=blank&amp;r=g","caption":"Doron","inLanguage":"en-US"}},{"@type":"BlogPosting","headline":"How to Connect Python to Oracle using cx_Oracle connect - Data to Fish","keywords":"cx_Oracle connect","datePublished":"2018-01-28T15:57:52+00:00","dateModified":"2021-06-12T08:01:12+00:00","author":{"@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#author"},"publisher":{"@id":"https://datatofish.com/#person"},"description":"Need to connect your Python to an Oracle database? If so, you&#039;ll see how to connect Python to an Oracle database using cx_Oracle connect.","name":"How to Connect Python to Oracle using cx_Oracle connect - Data to Fish","@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#richSnippet","isPartOf":{"@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#webpage"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#webpage"}}]}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Data to Fish » Feed" href="https://datatofish.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Data to Fish » Comments Feed" href="https://datatofish.com/comments/feed/">
+<link rel="stylesheet" id="wp-block-library-css" href="./How to Connect Python to Oracle using cx_Oracle connect - Data to Fish_files/style.min.css" media="all">
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--contrast: var(--contrast);--wp--preset--color--contrast-2: var(--contrast-2);--wp--preset--color--contrast-3: var(--contrast-3);--wp--preset--color--base: var(--base);--wp--preset--color--base-2: var(--base-2);--wp--preset--color--base-3: var(--base-3);--wp--preset--color--accent: var(--accent);--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="generate-style-css" href="./How to Connect Python to Oracle using cx_Oracle connect - Data to Fish_files/all.min.css" media="all">
+<style id="generate-style-inline-css">
+body{background-color:#efefef;color:#000000;}a{color:#1e73be;}a:hover, a:focus, a:active{color:#000000;}body .grid-container{max-width:1270px;}.wp-block-group__inner-container{max-width:1270px;margin-left:auto;margin-right:auto;}:root{--contrast:#222222;--contrast-2:#575760;--contrast-3:#b2b2be;--base:#f0f0f0;--base-2:#f7f8f9;--base-3:#ffffff;--accent:#1e73be;}.has-contrast-color{color:#222222;}.has-contrast-background-color{background-color:#222222;}.has-contrast-2-color{color:#575760;}.has-contrast-2-background-color{background-color:#575760;}.has-contrast-3-color{color:#b2b2be;}.has-contrast-3-background-color{background-color:#b2b2be;}.has-base-color{color:#f0f0f0;}.has-base-background-color{background-color:#f0f0f0;}.has-base-2-color{color:#f7f8f9;}.has-base-2-background-color{background-color:#f7f8f9;}.has-base-3-color{color:#ffffff;}.has-base-3-background-color{background-color:#ffffff;}.has-accent-color{color:#1e73be;}.has-accent-background-color{background-color:#1e73be;}body, button, input, select, textarea{font-family:Arial, Helvetica, sans-serif;font-size:18px;}body{line-height:1.9;}.entry-content > [class*="wp-block-"]:not(:last-child){margin-bottom:1.5em;}.main-navigation .main-nav ul ul li a{font-size:14px;}.sidebar .widget, .footer-widgets .widget{font-size:17px;}h1{font-weight:bold;font-size:44px;}h2{font-weight:bold;font-size:32px;}h3{font-weight:bold;font-size:24px;}h4{font-size:inherit;}h5{font-size:inherit;}@media (max-width:768px){.main-title{font-size:30px;}h1{font-size:30px;}h2{font-size:25px;}}.top-bar{background-color:#636363;color:#ffffff;}.top-bar a{color:#ffffff;}.top-bar a:hover{color:#303030;}.site-header{background-color:#ffffff;color:#3a3a3a;}.site-header a{color:#3a3a3a;}.main-title a,.main-title a:hover{color:#222222;}.site-description{color:#757575;}.main-navigation,.main-navigation ul ul{background-color:#1e73be;}.main-navigation .main-nav ul li a, .main-navigation .menu-toggle, .main-navigation .menu-bar-items{color:#ffffff;}.main-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a, .main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{color:#ffffff;background-color:#035a9e;}button.menu-toggle:hover,button.menu-toggle:focus,.main-navigation .mobile-bar-items a,.main-navigation .mobile-bar-items a:hover,.main-navigation .mobile-bar-items a:focus{color:#ffffff;}.main-navigation .main-nav ul li[class*="current-menu-"] > a{color:#ffffff;background-color:#035a9e;}.navigation-search input[type="search"],.navigation-search input[type="search"]:active, .navigation-search input[type="search"]:focus, .main-navigation .main-nav ul li.search-item.active > a, .main-navigation .menu-bar-items .search-item.active > a{color:#ffffff;background-color:#035a9e;}.main-navigation ul ul{background-color:#035a9e;}.main-navigation .main-nav ul ul li a{color:#ffffff;}.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):hover > a,.main-navigation .main-nav ul ul li:not([class*="current-menu-"]):focus > a, .main-navigation .main-nav ul ul li.sfHover:not([class*="current-menu-"]) > a{color:#bbd2e8;background-color:#035a9e;}.main-navigation .main-nav ul ul li[class*="current-menu-"] > a{color:#bbd2e8;background-color:#035a9e;}.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .one-container .container, .separate-containers .paging-navigation, .inside-page-header{background-color:#ffffff;}.entry-meta{color:#595959;}.entry-meta a{color:#595959;}.entry-meta a:hover{color:#1e73be;}.sidebar .widget{background-color:#ffffff;}.sidebar .widget .widget-title{color:#000000;}.footer-widgets{background-color:#ffffff;}.footer-widgets .widget-title{color:#000000;}.site-info{color:#ffffff;background-color:#222222;}.site-info a{color:#ffffff;}.site-info a:hover{color:#606060;}.footer-bar .widget_nav_menu .current-menu-item a{color:#606060;}input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="tel"],input[type="number"],textarea,select{color:#666666;background-color:#fafafa;border-color:#cccccc;}input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="number"]:focus,textarea:focus,select:focus{color:#666666;background-color:#ffffff;border-color:#bfbfbf;}button,html input[type="button"],input[type="reset"],input[type="submit"],a.button,a.wp-block-button__link:not(.has-background){color:#ffffff;background-color:#666666;}button:hover,html input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover,a.button:hover,button:focus,html input[type="button"]:focus,input[type="reset"]:focus,input[type="submit"]:focus,a.button:focus,a.wp-block-button__link:not(.has-background):active,a.wp-block-button__link:not(.has-background):focus,a.wp-block-button__link:not(.has-background):hover{color:#ffffff;background-color:#3f3f3f;}a.generate-back-to-top{background-color:rgba( 0,0,0,0.4 );color:#ffffff;}a.generate-back-to-top:hover,a.generate-back-to-top:focus{background-color:rgba( 0,0,0,0.6 );color:#ffffff;}@media (max-width:768px){.main-navigation .menu-bar-item:hover > a, .main-navigation .menu-bar-item.sfHover > a{background:none;color:#ffffff;}}.inside-top-bar{padding:10px;}.site-main .wp-block-group__inner-container{padding:40px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-40px;width:calc(100% + 80px);max-width:calc(100% + 80px);}.container.grid-container{max-width:1350px;}.rtl .menu-item-has-children .dropdown-menu-toggle{padding-left:20px;}.rtl .main-navigation .main-nav ul li.menu-item-has-children > a{padding-right:20px;}.site-info{padding:20px;}@media (max-width:768px){.separate-containers .inside-article, .separate-containers .comments-area, .separate-containers .page-header, .separate-containers .paging-navigation, .one-container .site-content, .inside-page-header{padding:30px;}.site-main .wp-block-group__inner-container{padding:30px;}.site-info{padding-right:10px;padding-left:10px;}.entry-content .alignwide, body:not(.no-sidebar) .entry-content .alignfull{margin-left:-30px;width:calc(100% + 60px);max-width:calc(100% + 60px);}}.one-container .sidebar .widget{padding:0px;}/* End cached CSS */@media (max-width:768px){.main-navigation .menu-toggle,.main-navigation .mobile-bar-items,.sidebar-nav-mobile:not(#sticky-placeholder){display:block;}.main-navigation ul,.gen-sidebar-nav{display:none;}[class*="nav-float-"] .site-header .inside-header > *{float:none;clear:both;}}
+</style>
+<link rel="https://api.w.org/" href="https://datatofish.com/wp-json/"><link rel="alternate" type="application/json" href="https://datatofish.com/wp-json/wp/v2/posts/2972"><link rel="shortlink" href="https://datatofish.com/?p=2972">
+<link rel="alternate" type="application/json+oembed" href="https://datatofish.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdatatofish.com%2Fhow-to-connect-python-to-an-oracle-database-using-cx_oracle%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://datatofish.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fdatatofish.com%2Fhow-to-connect-python-to-an-oracle-database-using-cx_oracle%2F&amp;format=xml">
+<link rel="icon" href="https://datatofish.com/wp-content/uploads/2018/05/64-1-1.png" sizes="32x32">
+<link rel="icon" href="https://datatofish.com/wp-content/uploads/2018/05/64-1-1.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://datatofish.com/wp-content/uploads/2018/05/64-1-1.png">
+<meta name="msapplication-TileImage" content="https://datatofish.com/wp-content/uploads/2018/05/64-1-1.png">
+		<style id="wp-custom-css">
+			h2.widget-title{
+text-align:center;	
+	background:#d7e6fa;
+	border-radius: 5px;
+}
+
+p.main-title{
+	font-size:34px;
+	font-family:Comic Sans MS;
+}
+
+header#masthead.site-header {
+background: #d7e6fa;
+}
+
+div#footer-widgets.site.footer-widgets{
+	background: #222;
+}
+
+p#breadcrumbs{
+		background: #e6e6e6;
+}
+
+form.search-form {
+	display: none;
+}
+
+pre {
+font-family: monospace;
+font-size: 17px;
+border:1px solid #adbbc4;
+border-left:4px solid #344e78;
+}
+
+code{
+white-space: pre; 
+display: block;
+color:blue;
+text-align: center;
+font-size: 16px;
+}
+
+table, th, td {
+margin-left: auto;
+margin-right: auto;
+line-height: 16px;
+font-size:17px;
+color: #000000;
+font-family: monospace; 
+border:none;
+}
+
+tr:nth-child(odd) {
+  background-color: #d7e6fa;
+}
+/*#dfe6eb*/
+
+tr:nth-child(even) {
+  background-color: #f7fcff;
+}
+
+
+		</style>
+		<link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="true"><link rel="preconnect" href="https://fonts.gstatic.com/"><link rel="stylesheet" href="./How to Connect Python to Oracle using cx_Oracle connect - Data to Fish_files/css2"></head>
+
+<body class="post-template-default single single-post postid-2972 single-format-standard wp-embed-responsive right-sidebar nav-below-header separate-containers fluid-header active-footer-widgets-1 nav-aligned-left header-aligned-left dropdown-hover vsc-initialized using-mouse" itemtype="https://schema.org/Blog" itemscope="" data-new-gr-c-s-check-loaded="14.1073.0" data-gr-ext-installed="">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0.49803921568627"></fefuncr><fefuncg type="table" tableValues="0 0.49803921568627"></fefuncg><fefuncb type="table" tableValues="0 0.49803921568627"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0 1"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.54901960784314 0.98823529411765"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0.71764705882353 0.25490196078431"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"></fefuncr><fefuncg type="table" tableValues="0 0.27843137254902"></fefuncg><fefuncb type="table" tableValues="0.5921568627451 0.27843137254902"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0"></fefuncr><fefuncg type="table" tableValues="0 0.64705882352941"></fefuncg><fefuncb type="table" tableValues="0 1"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.78039215686275 1"></fefuncr><fefuncg type="table" tableValues="0 0.94901960784314"></fefuncg><fefuncb type="table" tableValues="0.35294117647059 0.47058823529412"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.65098039215686 0.40392156862745"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0.44705882352941 0.4"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.098039215686275 1"></fefuncr><fefuncg type="table" tableValues="0 0.66274509803922"></fefuncg><fefuncb type="table" tableValues="0.84705882352941 0.41960784313725"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><a class="screen-reader-text skip-link" href="https://datatofish.com/how-to-connect-python-to-an-oracle-database-using-cx_oracle/#content" title="Skip to content">Skip to content</a>		<header class="site-header" id="masthead" aria-label="Site" itemtype="https://schema.org/WPHeader" itemscope="">
+			<div class="inside-header grid-container grid-parent">
+				<div class="site-branding">
+						<p class="main-title" itemprop="headline">
+					<a href="https://datatofish.com/" rel="home">
+						Data to Fish
+					</a>
+				</p>
+						
+					</div>			</div>
+		</header>
+				<nav class="main-navigation sub-menu-right" id="site-navigation" aria-label="Primary" itemtype="https://schema.org/SiteNavigationElement" itemscope="">
+			<div class="inside-navigation grid-container grid-parent">
+								<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<span class="gp-icon icon-menu-bars"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z"></path></svg><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M71.029 71.029c9.373-9.372 24.569-9.372 33.942 0L256 222.059l151.029-151.03c9.373-9.372 24.569-9.372 33.942 0 9.372 9.373 9.372 24.569 0 33.942L289.941 256l151.03 151.029c9.372 9.373 9.372 24.569 0 33.942-9.373 9.372-24.569 9.372-33.942 0L256 289.941l-151.029 151.03c-9.373 9.372-24.569 9.372-33.942 0-9.372-9.373-9.372-24.569 0-33.942L222.059 256 71.029 104.971c-9.372-9.373-9.372-24.569 0-33.942z"></path></svg></span><span class="mobile-menu">Menu</span>				</button>
+				<div id="primary-menu" class="main-nav"><ul id="menu-menu-5" class=" menu sf-menu"><li id="menu-item-9084" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-9084"><a href="https://datatofish.com/">Home</a></li>
+<li id="menu-item-9087" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9087"><a href="https://datatofish.com/tutorials/">Tutorials</a></li>
+<li id="menu-item-9086" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9086"><a href="https://datatofish.com/contact-us/">About</a></li>
+</ul></div>			</div>
+		</nav>
+		
+	<div class="site grid-container container hfeed grid-parent" id="page">
+				<div class="site-content" id="content">
+			
+	<div class="content-area grid-parent mobile-grid-100 grid-75 tablet-grid-75" id="primary">
+		<main class="site-main" id="main">
+			
+<article id="post-2972" class="post-2972 post type-post status-publish format-standard hentry category-python" itemtype="https://schema.org/CreativeWork" itemscope="">
+	<div class="inside-article">
+					<header class="entry-header" aria-label="Content">
+				<h1 class="entry-title" itemprop="headline">How to Connect Python to Oracle Database using cx_Oracle</h1>		<div class="entry-meta">
+			June 12, 2021 		</div>
+					</header>
+			
+		<div class="entry-content" itemprop="text">
+			<p>Need to connect Python to an Oracle database using <em>cx_Oracle connect</em>?</p>
+<p>If so, in this short guide, you’ll see the steps to establish this type of connection from scratch.</p>
+<h2>Steps to Connect Python to Oracle using cx_Oracle connect</h2>
+<h3>Step 1: Install the cx_Oracle package</h3>
+<p>If you haven’t already done so, <a href="https://datatofish.com/install-package-python-using-pip/">install the cx_Oracle package</a>. You may use the following syntax to install the cx_Oracle package under Windows:</p>
+<pre>pip install cx_Oracle
+</pre>
+<h3>Step 2: Retrieve the connection information</h3>
+<p>Next, retrieve the connection information. You can do that by locating your <em>tnsnames.ora</em> file on your computer (e.g., type tnsnames.ora in the Windows search bar).</p>
+<p>Now, open your tnsnames.ora file and look for your desired connection.</p>
+<p>It should look like the info below (highlighted in colors 3 elements that you usually need to look for before you can establish a connection between Python and your Oracle database):</p>
+<p>SYSTEM_OCON =<br>
+(DESCRIPTION =<br>
+(ADDRESS = (PROTOCOL = TCP)(HOST = <span style="background-color: #ccffff;">Host Name</span>)(PORT = <span style="background-color: #ccffcc;">Port Number</span>))<br>
+(LOAD_BALANCE = YES)<br>
+(CONNECT_DATA =<br>
+(SERVER = DEDICATED)<br>
+(SERVICE_NAME = <span style="background-color: #f9fccc;">Service Name</span>)<br>
+(FAILOVER_MODE =<br>
+(TYPE = SELECT)<br>
+(METHOD = BASIC)<br>
+(RETRIES = 180)<br>
+(DELAY = 5)</p>
+<h3>Step 3: Connect Python to Oracle using cx_Oracle connect</h3>
+<p>Finally, copy/type the following syntax in <a href="https://datatofish.com/python-tutorials/">Python</a> while adding the needed info based on your Oracle connection:</p>
+<pre>import cx_Oracle
+
+dsn_tns = cx_Oracle.makedsn('Host Name', 'Port Number', service_name='Service Name') # if needed, place an 'r' before any parameter in order to address special characters such as '\'.
+conn = cx_Oracle.connect(user=r'User Name', password='Personal Password', dsn=dsn_tns) # if needed, place an 'r' before any parameter in order to address special characters such as '\'. For example, if your user name contains '\', you'll need to place 'r' before the user name: user=r'User Name'
+
+c = conn.cursor()
+c.execute('select * from database.table') # use triple quotes if you want to spread your query across multiple lines
+for row in c:
+    print (row[0], '-', row[1]) # this only shows the first two columns. To add an additional column you'll need to add , '-', row[2], etc.
+#conn.close()
+</pre>
+<p>Please note that there are additional ways to retrieve the information needed to facilitate your connection to the Oracle database.</p>
+<p>For example, you can run the following query to get the Service Name:</p>
+<pre>select sys_context('userenv','service_name') from dual
+</pre>
+<p>You may also run the following query to get the list of users:</p>
+<pre>select username from dba_users
+</pre>
+<h2>Conclusion and Additional Resources</h2>
+<p>You just saw how to connect Python to Oracle using cx_Oracle connect. Once you established such a connection, you can start <a href="https://datatofish.com/sql-in-python/"><em>using SQL in Python</em> </a>to manage your data.</p>
+<p>You can learn more about the different types of connections between Python and other database applications by visiting these guides:</p>
+<ul>
+<li><a href="https://datatofish.com/how-to-connect-python-to-sql-server-using-pyodbc/">Connect Python to SQL Server using pyodbc</a></li>
+<li><a href="https://datatofish.com/how-to-connect-python-to-ms-access-database-using-pyodbc/">Connect Python to MS Access Database using pyodbc</a></li>
+</ul>
+<p>For further information about the&nbsp;cx_Oracle package, please refer to the&nbsp;<a href="https://cx-oracle.readthedocs.io/en/latest/" target="_blank" rel="noopener noreferrer">cx_Oracle’s documentation</a>.</p>
+		</div>
+
+				<footer class="entry-meta" aria-label="Entry meta">
+			<span class="cat-links"><span class="gp-icon icon-categories"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z"></path></svg></span><span class="screen-reader-text">Categories </span><a href="https://datatofish.com/category/python/" rel="category tag">Python</a></span> 		<nav id="nav-below" class="post-navigation" aria-label="Single Post">
+			<span class="screen-reader-text">Post navigation</span>
+
+			<div class="nav-previous"><span class="gp-icon icon-arrow-left"><svg viewBox="0 0 192 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M178.425 138.212c0 2.265-1.133 4.813-2.832 6.512L64.276 256.001l111.317 111.277c1.7 1.7 2.832 4.247 2.832 6.513 0 2.265-1.133 4.813-2.832 6.512L161.43 394.46c-1.7 1.7-4.249 2.832-6.514 2.832-2.266 0-4.816-1.133-6.515-2.832L16.407 262.514c-1.699-1.7-2.832-4.248-2.832-6.513 0-2.265 1.133-4.813 2.832-6.512l131.994-131.947c1.7-1.699 4.249-2.831 6.515-2.831 2.265 0 4.815 1.132 6.514 2.831l14.163 14.157c1.7 1.7 2.832 3.965 2.832 6.513z" fill-rule="nonzero"></path></svg></span><span class="prev" title="Previous"><a href="https://datatofish.com/install-a-package-in-anaconda-connection-timeout/" rel="prev">Install Package in Anaconda when Facing Connection Timeout</a></span></div><div class="nav-next"><span class="gp-icon icon-arrow-right"><svg viewBox="0 0 192 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M178.425 256.001c0 2.266-1.133 4.815-2.832 6.515L43.599 394.509c-1.7 1.7-4.248 2.833-6.514 2.833s-4.816-1.133-6.515-2.833l-14.163-14.162c-1.699-1.7-2.832-3.966-2.832-6.515 0-2.266 1.133-4.815 2.832-6.515l111.317-111.316L16.407 144.685c-1.699-1.7-2.832-4.249-2.832-6.515s1.133-4.815 2.832-6.515l14.163-14.162c1.7-1.7 4.249-2.833 6.515-2.833s4.815 1.133 6.514 2.833l131.994 131.993c1.7 1.7 2.832 4.249 2.832 6.515z" fill-rule="nonzero"></path></svg></span><span class="next" title="Next"><a href="https://datatofish.com/use-pandas-to-calculate-stats-from-an-imported-csv-file/" rel="next">Use Pandas to Calculate Stats from an Imported CSV file</a></span></div>		</nav>
+				</footer>
+			</div>
+</article>
+		</main>
+	</div>
+
+	<div class="widget-area sidebar is-right-sidebar grid-25 tablet-grid-25 grid-parent" id="right-sidebar">
+	<div class="inside-right-sidebar">
+		<aside id="text-210" class="widget inner-padding widget_text"><h2 class="widget-title">Tutorials</h2>			<div class="textwidget"><p><a href="https://datatofish.com/python-tutorials/">Python Tutorials</a><br>
+<a href="https://datatofish.com/r-tutorials/">R Tutorials</a><br>
+<a href="https://datatofish.com/julia-tutorials/">Julia Tutorials</a><br>
+<a href="https://datatofish.com/batch-scripts-tutorials/">Batch Scripts</a></p>
+</div>
+		</aside>
+		<aside id="recent-posts-25" class="widget inner-padding widget_recent_entries">
+		<h2 class="widget-title">Recent Posts</h2>
+		<ul>
+											<li>
+					<a href="https://datatofish.com/iterate-list-of-lists/">How to Iterate over a List of Lists in Python</a>
+									</li>
+											<li>
+					<a href="https://datatofish.com/how-to-iterate-over-a-dictionary-in-python/">How to Iterate over a Dictionary in Python</a>
+									</li>
+					</ul>
+
+		</aside>	</div>
+</div>
+
+	</div>
+</div>
+
+
+<div class="site-footer">
+				<div id="footer-widgets" class="site footer-widgets">
+				<div class="footer-widgets-container grid-container grid-parent">
+					<div class="inside-footer-widgets">
+							<div class="footer-widget-1 grid-parent grid-100 tablet-grid-50 mobile-grid-100">
+		<aside id="block-14" class="widget inner-padding widget_block widget_text">
+<p class="has-text-align-center"><span style="color:#d2d6d7" class="has-inline-color">DATA TO FISH<br></span><a href="https://datatofish.com/privacy-policy/">Privacy Policy</a> <span class="has-inline-color has-white-color">-</span> <a href="https://datatofish.com/cookie-policy-for-data-to-fish/">Cookie Policy</a> <span class="has-inline-color has-white-color">-</span> <a href="https://datatofish.com/terms-of-service-data-to-fish/">Terms of Service</a><br><span style="color:#d2d6d7" class="has-inline-color">Copyright © | All rights reserved</span></p>
+</aside>	</div>
+						</div>
+				</div>
+			</div>
+			</div>
+
+<script id="generate-a11y">!function(){"use strict";if("querySelector"in document&&"addEventListener"in window){var e=document.body;e.addEventListener("mousedown",function(){e.classList.add("using-mouse")}),e.addEventListener("keydown",function(){e.classList.remove("using-mouse")})}}();</script><!--[if lte IE 11]>
+<script src='https://datatofish.com/wp-content/themes/generatepress/assets/js/classList.min.js' id='generate-classlist-js'></script>
+<![endif]-->
+<script id="generate-menu-js-extra">
+var generatepressMenu = {"toggleOpenedSubMenus":"1","openSubMenuLabel":"Open Sub-Menu","closeSubMenuLabel":"Close Sub-Menu"};
+</script>
+<script src="./How to Connect Python to Oracle using cx_Oracle connect - Data to Fish_files/menu.min.js.다운로드" id="generate-menu-js"></script>
+
+
+
+
+<nav aria-label="breadcrumbs" class="rank-math-breadcrumb"><p><a href="https://datatofish.com/">Home</a><span class="separator"> » </span><a href="https://datatofish.com/category/python/">Python</a><span class="separator"> » </span><span class="last">How to Connect Python to Oracle Database using cx_Oracle</span></p></nav>
+
+<!-- Dynamic page generated in 0.106 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2022-08-15 03:26:03 -->
+
+<!-- super cache --></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
