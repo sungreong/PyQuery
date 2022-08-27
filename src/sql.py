@@ -36,8 +36,9 @@ class SQL(object):
         assert len(order_cols) == len(sorting_types), "ORDER에 맞게 SORTING TYPE 정해야 함"
         return ", ".join([f"{col} {type}" for col, type in zip(order_cols, sorting_types)]).strip()
 
-    @staticmethod
+    @classmethod
     def make_query(
+        cls,
         select_c,
         from_c,
         order_c="",
@@ -51,7 +52,15 @@ class SQL(object):
         query = f"{select_c} {from_c} {where_c} {group_c} {having_c} {order_c}"
         if upper:
             query = query.upper()
-        return re.sub(" +", " ", query).strip()
+        return cls.split_by_clause(re.sub(" +", " ", query).strip())
+
+    @classmethod
+    def split_by_clause(cls, query):
+        q = query
+        clauses = ["SELECT", "FROM", "WHERE", "HAVING", "GROUP", "AND", "OR"]
+        for c in clauses:
+            q = q.replace(f"{c} ", f"\n{c} ")
+        return q
 
     @staticmethod
     def define_temp_table(temp_table_name, query):
@@ -77,6 +86,11 @@ class ClauseManagement(object):
     def add_condition(query1, query2, method):
         assert method in ["AND", "OR"], "AND or OR 만 가능합니다."
         return f"{query1} {method} {query2}"
+
+    @staticmethod
+    def add_condition_multiple(*args, method):
+        assert method in ["AND", "OR"], "AND or OR 만 가능합니다."
+        return f" {method} ".join(args)
 
     @classmethod
     def finish_where_query(cls, query):
@@ -115,6 +129,8 @@ class ConditionQuery(object):
     )
     agg_list = list(_agg_f.keys())
 
+    string_method = dict(true=lambda x: f"'{x}'", false=lambda x: x)
+
     def __init__(self, col, table_name=None):
         self._col = col
         if table_name is None:
@@ -149,9 +165,10 @@ class ConditionQuery(object):
         else:
             return f"{col} <= {high}"
 
-    def q_equal(self, key, reverse=False, agg_f="none"):
+    def q_equal(self, key, reverse=False, agg_f="none", to_string="true"):
         assert agg_f in self.agg_list
         col = self._agg_f[agg_f](self._col)
+        key = self.string_method[to_string](key)
         if reverse:
             return f"{col} != {key}"
         else:
@@ -163,7 +180,9 @@ class ConditionQuery(object):
         else:
             return f"{self._col} IS NULL"
 
-    def q_in(self, list_value, reverse=False):
+    def q_in(self, list_value, reverse=False, to_string="true"):
+
+        list_value = [self.string_method[to_string](i) for i in list_value]
         candidates = ", ".join(list_value)
         if reverse:
             return f"{self._col} NOT IN ({candidates})"
@@ -178,6 +197,75 @@ class ConditionQuery(object):
 
     def q_like(self, pattern):
         return f"{self._col} LIKE {pattern}"
+
+
+from copy import deepcopy
+
+
+def isclass(object):
+    """Return true if the object is a class.
+
+    Class objects provide these attributes:
+        __doc__         documentation string
+        __module__      name of module in which this class was defined"""
+    return isinstance(object, type)
+
+
+class Column(object):
+    def __init__(
+        self,
+    ):
+        self._no_setting = True
+        self.candidates = set()
+
+    def add_table_column_info(self, column_list, alias):
+        self._alias_name = alias
+        self.candidates.update(set([f"{alias}.{i}" for i in column_list]))
+
+    def check_column_name(self, column_name, verbose=False):
+        check_cols = [re.search(f"^([a-zA-Z]+).{column_name}", i) for i in self.candidates]
+        if any(check_cols):
+            select_cols = [i.group() for idx, i in enumerate(check_cols) if i is not None]
+            if len(select_cols) == 2:
+                print("확인 필요")
+                print("CANDIDATE : ", select_cols)
+            else:
+                return select_cols[0]
+        else:
+            raise Exception(f"해당 컬럼은 테이블에 매칭되는 컬럼이 없습니다. : {column_name}")
+
+    def initialize(self):
+        self._col = self._base_col
+
+    def define(self, column):
+
+        self._col = self.check_column_name(column)
+        self._base_col = self._col
+        self._no_setting = False
+        return self
+
+    def calculate(self, val, method="/"):
+        assert method in ["*", "/"]
+        if self._no_setting:
+            raise Exception("define 먼저 해야합니다.")
+
+        if isinstance(val, Column):
+            _col = f"{self._col} {method} {val.get()}"
+        else:
+            val = self.check_column_name(val)
+            _col = f"{self._col} {method} {val}"
+        self._col = _col
+        return self
+
+    def alias(self, alias):
+        # self._alias_name = alias
+        self._col = f"({self._col}) AS {alias}"
+        self.candidates.update(set([f"{self._alias_name}.{alias}"]))
+        return self
+
+    def get(self):
+        col = deepcopy(self._col)
+        return col
 
 
 if __name__ == "__main__":
